@@ -73,6 +73,8 @@ class ConditionalAggregateFileSystem {
     let timeout: any = undefined;
     const printer = new FalseConditionPrinter(this.logger);
 
+    // This runs on each file's change, but NOT during the 1st full build. For
+    // the 1st full build, see the code below around hooks.watchRun.
     return this.wfs.watch(
       files,
       dirs,
@@ -140,6 +142,9 @@ export default class ConditionalAggregateWebpackPlugin {
       this.options.recheckInterval || DEFAULT_RECHECK_INTERVAL;
     let firstRun = true;
 
+    // This runs before the full compilation only, NOT on every file's change.
+    // Basically, it does the same as ConditionalAggregateFileSystem, but in the
+    // very beginning, during the very 1st build.
     compiler.hooks.watchRun.tapPromise(PLUGIN_NAME, async () => {
       if (firstRun) {
         firstRun = false;
