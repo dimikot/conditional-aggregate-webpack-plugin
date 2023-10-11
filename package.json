@@ -1,0 +1,31 @@
+{
+  "name": "conditional-aggregate-webpack-plugin",
+  "version": "1.0.0",
+  "description": "Delays webpack aggregateTimeout triggered watch-build until some custom condition meets.",
+  "homepage": "https://github.com/dimikot/conditional-aggregate-webpack-plugin#readme",
+  "author": "Dimi Kot",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimikot/conditional-aggregate-webpack-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dimikot/conditional-aggregate-webpack-plugin/issues"
+  },
+  "keywords": [
+    "webpack",
+    "aggregateTimeout",
+    "watch"
+  ],
+  "main": "./dist/ConditionalAggregateWebpackPlugin.js",
+  "typings": "dist/ConditionalAggregateWebpackPlugin.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist node_modules yarn.lock package-lock.json"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.2"
+  },
+  "dependencies": {}
+}
